@@ -14,4 +14,5 @@ jobs:
           script: |
             mkdir test
             cd test
+            git clone https://github.com/madil89/workflow.git
             echo deployment successful
