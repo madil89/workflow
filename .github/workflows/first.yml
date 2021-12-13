@@ -3,16 +3,7 @@ on: push
 jobs:
   job1:
     name: first job
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: first step
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USERNAME }}
-          key: ${{ secrets. SSH_KEY}}
-          script: |
-            mkdir test
-            cd test
-            git clone https://github.com/madil89/workflow.git
-            echo deployment successful
+        uses: actions/checkout@v2
