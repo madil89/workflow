@@ -8,7 +8,7 @@ jobs:
       - name: step1
         uses: actions/checkout@v2
       - name: step2
-        run: env | sort
+        run: echo "$(date +%Y-%m-%d_%H-%M-%S)"
   job2:
     name: job2
     runs-on: windows-latest
@@ -16,5 +16,13 @@ jobs:
       - name: step1
         uses: actions/checkout@v2
       - name: step2
-        run: "Get-ChildItem Env: | Sort-Object Name"
-
+        run: echo "$(date +%Y-%m-%d_%H-%M-%S)"
+  job3:
+    name: job3
+    runs-on: macos-latest
+    needs: [job1, job2]
+    steps:
+      - name: step1
+        uses: actions/checkout@v2
+      - name: step2
+        run: echo "$(date +%Y-%m-%d_%H-%M-%S)"
